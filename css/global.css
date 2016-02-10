@@ -1,12 +1,13 @@
 *{ margin: 0px; padding: 0px; }
 body { font-family: 'Open Sans', arial, sans-serif; height: 100%; font-size: 14px; line-height: 1; color: #333; background-color: #ffffff; }
 a, a:focus { outline: none!important; text-decoration: none; }
-p { line-height: 30px; font-size: 14px; color: #666; word-wrap: break-word; font-family: 'Slabo 27px', arial, serif; }
+p { line-height: 30px; font-size: 14px; color: #666; word-wrap: break-word; }
 img  { max-width: 100%; height: auto; }
 ul { list-style: none; }
 iframe { width: 100%; display: block; }
 .errorMsg { margin-top: 5px; color: #a94442; font-size: 11px; }
 .valign { vertical-align: middle; }
+.clear { clear: both; display: block; height: 0; }
 
 /* css for header */
 header { position: fixed; top: 0; left: 0; width: 100%; z-index: 10; }
@@ -24,8 +25,13 @@ header .fixed.navbar-default .navbar-nav > li > a { color: #666; }
 header .fixed.navbar-default .navbar-nav > li > a:hover, header .fixed.navbar-default .navbar-nav > .active > a, header .fixed.navbar-default .navbar-nav > .active > a:focus { outline: none; color: #213886; border-bottom-color: #213886; background: none; }
 header .navbar-toggle { margin-top: 16px; }
 
+.ph-num { z-index: 10; font-size: 17px; color: #fff; text-shadow: 0 3px 3px #000; position: absolute; left: 18px; top: 75px; }
+
 /* css for banner */
-.bannerBox { height: 100%; position: relative; background: url(../images/bannerBg.jpg) top left no-repeat; background-size: cover; }
+.bannerBox { height: 100%; position: relative; background-position: top left; background-repeat: no-repeat; background-size: cover; }
+.bannerBox.midasBg { background-image: url(../images/bannerBg.jpg); }
+.bannerBox.sereneBg { background-image: url(../images/serene-projectBg.jpg); }
+.bannerBox.sharanamBg { background-image: url(../images/sharanam-projectBg.jpg); }
 .bannerBox .scrollingArrow { margin-left: -14px; display: block; font-size: 16px; box-shadow: 0 3px 3px rgba(0,0,0,.5); position: absolute; bottom: 0px; left: 50%; width: 30px; height: 30px; border-radius: 50%; color: #fff; line-height: 30px; text-align: center; animation: arrow-jump 2s infinite; background-color: #f5a623; }
 .bannerBox:before { position: absolute; bottom: 0; width: 100%; height: 15px; content: ''; background-color: #fff; }
 .bannerBox .info { margin: auto; max-width: 500px; width: 100%; padding-top: 20%; text-align: center; }
@@ -139,8 +145,8 @@ section p { font-size: 18px; }
 .conceptManageWrapBox .cols:hover { background-size: 230%; }
 
 /* css for loan block */
-.loanBlock { padding: 20px 30px; text-align: center; background-color: #f0f0f0; }
-.loanBlock .col { color: #999; font-weight: 600; border-left: 1px solid #dcdcdc; font-size: 22px; }
+.loanBlock { padding: 20px 30px; text-align: center; background-color: #e4e4e4; }
+.loanBlock .col { min-height: 94px; color: #999; font-weight: 600; border-left: 1px solid #d2d2d2; font-size: 22px; }
 .loanBlock .col img { margin-right: 15px; }
 .loanBlock .col:first-child { border: none; }
 .loanBlock .col span { margin: 10px 0; display: block; font-weight: 700; font-size: 38px; color: #666; }
@@ -153,20 +159,26 @@ section p { font-size: 18px; }
 .apartmentTypeBox .specsWrapper { margin: 0 -50px; margin-bottom: 30px; overflow: auto; }
 .apartmentTypeBox .spec-row { padding: 0 150px; display: table; text-align: center; width: 100%; }
 .apartmentTypeBox .spec-col { padding: 10px; color: #000; font-weight: 600; min-width: 190px; max-width: 190px; display: table-cell; }
-.apartmentTypeBox .labl-col span { font-weight: normal; display: block; color: #999; font-family: 'Slabo 27px', arial, serif; text-align: right; }
+.apartmentTypeBox .labl-col span { font-weight: normal; display: block; color: #999; text-align: right; }
 .apartmentTypeBox .head { color: #f5a623; text-transform: uppercase; font-size: 18px; font-weight: 600; }
 .apartmentTypeBox .btn { min-width: 120px; }
 .apartmentTypeBox .loanBlock { margin: 0 -50px; }
+.apartmentTypeBox .tabs { margin: 20px 0 30px; padding: 0; text-align: center; }
+.apartmentTypeBox .tabs li { margin: 0 10px; display: inline-block; }
+.apartmentTypeBox .tabs li a { padding: 0 20px; position: relative; font-size: 16px; line-height: 36px; border: 1px solid #bcbcbc; border-bottom-width: 3px; display: block; color: #bcbcbc; background-color: #fff; }
+.apartmentTypeBox .tabs li a:after { margin-left: -5px; display: none; transform: rotate(135deg); position: absolute; content: ''; width: 10px; height: 10px; left: 50%; top: 95%; z-index: -1; background-color: #000; }
+.apartmentTypeBox .tabs li.active a, .apartmentTypeBox .tabs li a:hover { text-decoration: none; color: #000; border-color: #000; }
+.apartmentTypeBox .tabs li.active a:after { display: block; }
 
 /* css for amenities */
 .amenitiesBox ul { padding: 20px 0; border-bottom: 1px solid #dcdcdc; text-align: center; }
-.amenitiesBox li { padding: 0 20px; width: 19%; display: inline-block; vertical-align: top; font-size: 16px; }
+.amenitiesBox li { padding: 0 20px; width: 19%; display: inline-block; vertical-align: top; font-size: 14px; }
 .amenitiesBox li img { margin: auto; margin-bottom: 10px; display: block; }
-.amenitiesBox li { font-family: 'Slabo 27px', arial, serif; color: #999; }
+.amenitiesBox li { color: #999; }
 .amenitiesBox li.shuttle { width: 100%; }
 
 /* css for master plan */
-.masterPlanBox { background-color: #f0f0f0; }
+.masterPlanBox { }
 .masterPlanBox ul { margin-top: 20px; list-style: decimal; }
 .masterPlanBox li { padding-bottom: 5px; font-family: 'Slabo 27px', arial, serif; line-height: 20px; }
 
@@ -194,22 +206,9 @@ section p { font-size: 18px; }
 .whyHoskoteBox .icon_bx { width: 19%; margin: 0 2.5% 30px; display: inline-block; vertical-align: text-top; }
 .whyHoskoteBox .img-wrap { margin-bottom: 20px; }
 .whyHoskoteBox p { text-align: center; font-size: 19px; line-height: 28px; }
-.whyHoskoteBox .near-by { padding: 40px; padding-top: 0; margin-top: 30px; background-color: #F0F0F0; }
-.whyHoskoteBox .near-by ul { margin: 0; overflow: hidden; list-style: none; }
-.whyHoskoteBox .near-by li { padding: 7px 20px 0 35px; margin-top: 30px; font-size: 20px; min-height: 30px; width: 50%; float: left; position: relative; }
-.whyHoskoteBox .near-by li span { width: 25px; height: 33px; line-height: 33px; display: block; position: absolute; left: 0; top: 0; }
-.whyHoskoteBox .near-by li em { width: 25px; height: 30px; display: inline-block; vertical-align: middle; background: url(../images/nearby-sprite.png) no-repeat; }
-.whyHoskoteBox .near-by li.railway em { background-position: top center; }
-.whyHoskoteBox .near-by li.ofc em { height: 33px; background-position: left -30px; }
-.whyHoskoteBox .near-by li.taxi em { height: 23px; background-position: left -66px; }
-.whyHoskoteBox .near-by li.school em { height: 24px; background-position: left -89px; }
-.whyHoskoteBox .near-by li.metro em { height: 29px; background-position: left -115px; }
-.whyHoskoteBox .near-by li.school-1 em { height: 27px; background-position: left -146px; }
-.whyHoskoteBox .near-by li.airport em { height: 22px; background-position: left -177px; }
-.whyHoskoteBox .near-by li.college em { height: 20px; background-position: left -200px; }
 
 /* css for neighbourhood or map */
-.neighbourhoodBox { padding-top: 0; padding-bottom: 0; }
+.neighbourhoodBox { padding-top: 0; }
 .neighbourhoodBox .map { height: 350px; position: relative; }
 .neighbourhoodBox .map iframe { height: 350px; }
 .neghbrConectCol { background: #fff; padding: 0 0 5px; position: absolute; top: 15px; width: 160px; }
@@ -218,14 +217,29 @@ section p { font-size: 18px; }
 .neghbrConectCol .heading { background: #ddd none repeat scroll 0 0; color: #555; font-family: "proxima_nova",Arial,Helvetica,sans-serif; font-size: 13px; margin-bottom: 5px; padding: 3px 5px; }
 .neghbrConectCol ul li a { color: #666; cursor: pointer; text-decoration: none; }
 .neghbrConectCol ul li a img { background: #fff; border: medium none; border-radius: 14px; padding: 4px 4px 3px; vertical-align: bottom; }
+.near-by { padding: 40px; padding-top: 0; margin-top: 30px; background-color: #e4e4e4; }
+.near-by ul { margin: 0; overflow: hidden; list-style: none; }
+.near-by li { padding: 7px 20px 0 35px; margin-top: 30px; font-size: 20px; min-height: 30px; width: 50%; float: left; position: relative; }
+.near-by li span { width: 25px; height: 33px; line-height: 33px; display: block; position: absolute; left: 0; top: 0; }
+.near-by li em { width: 25px; height: 30px; display: inline-block; vertical-align: middle; background: url(../images/nearby-sprite.png) no-repeat; }
+.near-by li.railway em { background-position: top center; }
+.near-by li.ofc em { height: 33px; background-position: left -30px; }
+.near-by li.taxi em { height: 23px; background-position: left -66px; }
+.near-by li.school em { height: 24px; background-position: left -89px; }
+.near-by li.metro em { height: 29px; background-position: left -115px; }
+.near-by li.school-1 em { height: 27px; background-position: left -146px; }
+.near-by li.airport em { height: 22px; background-position: left -177px; }
+.near-by li.college em { height: 20px; background-position: left -200px; }
 
 /* css for about builder */
-.aboutBuilerBox { padding-bottom: 0; }
 .aboutBuilerBox .about img { margin: 10px 0; }
 .aboutBuilerBox .projects img { width: 100%; }
 .aboutBuilerBox .projects span { margin-top: 15px; font-size: 16px; display: block; font-weight: 600; color: #999; }
 .aboutBuilerBox .projects a:hover { color: #999; }
 .aboutBuilerBox .projects li { margin-bottom: 20px; }
+
+.by-proptiger { padding: 12px; text-align: center; font-size: 13px; position: fixed; right: 0px; bottom: 20px; z-index: 100; background-color: rgba(255, 255, 255, .6); }
+.by-proptiger span { margin-bottom: 5px; display: block; }
 
 /* css for register lightbox */
 .registerBox { position: fixed; top: 0; left: 0; opacity: 0; visibility: hidden; width: 100%; height: 100%; z-index: 10; transition: all .3s ease-in-out; background-color: rgba(0,0,0,.5); }
@@ -262,7 +276,7 @@ section p { font-size: 18px; }
 .bannerBox .btn-o, .apartmentTypeBox .btn-o { color: #f5a623; background-color: inherit; }
 
 /* css for footer */
-footer { padding: 30px 20px; text-align: center; font-family: 'Slabo 27px', arial, serif; }
+footer { padding: 30px 20px; text-align: center; }
 footer span { padding-right: 10px; }
 
 @media (min-width: 980px) and (max-width: 1199px) {
@@ -305,7 +319,7 @@ footer span { padding-right: 10px; }
 	.apartmentTypeBox .specsWrapper { margin-bottom: 20px; }
 	.amenitiesBox li { margin: 10px 0; width: 44%; }
 	.neighbourhoodBox { display: none; }
-	.aboutBuilerBox { padding-top: 0; }
+	.aboutBuilerBox { padding-bottom: 0; }
 	.loanBlock { padding-left: 0; padding-right: 0; }
 	.globalLaunchBox .loanBlock { padding: 0; }
 	.globalLaunchBox .launchDetails tr th, .globalLaunchBox .launchDetails tr td { padding: 10px 20px!important; }
@@ -317,15 +331,17 @@ footer span { padding-right: 10px; }
 	.banner-4d h3 { font-size: 24px; }
 	.banner-4d h3 span { display: block; color: #fff; text-shadow: 0 1px 1px rgba(0, 0, 0, 1); font-weight: bold; }
 	.movingBg::after, .movingBg::before { display: none; }
-	.whyHoskoteBox .near-by { padding: 15px; padding-top: 0; margin: 0 -5px; margin-top: 20px; }
-	.whyHoskoteBox .near-by li { padding-right: 0; margin-top: 15px; font-size: 16px; width: 100%; float: none; }
+	.near-by { padding: 15px; padding-top: 0; margin: 0 -5px; margin-top: 20px; }
+	.near-by li { padding-right: 0; margin-top: 15px; font-size: 16px; width: 100%; float: none; }
 }
 
 @media (max-width: 480px) {
+    header .logo { padding-left: 0; }
 	section h2 { font-size: 20px; }
-	section p { line-height: 24px; }
+	section p { font-size: 14px; line-height: 24px; }
 	.bannerBox .info h1 { font-size: 26px; }
 	.bannerBox .info h1 i { font-size: 24px; }
+    .bannerBox .info h4 { font-size: 14px; }
 	.bookNowBox [class*="col-"] { padding: 0; }
 	.bookNowBox .feature { font-size: 16px; }
 	.bookNowBox .feature span { font-size: 12px; }
@@ -334,11 +350,14 @@ footer span { padding-right: 10px; }
 	.amenitiesBox li { margin: 10px; padding: 0; width: 24%; }
 	.amenitiesBox li.shuttle img { width: auto; }
 	.loanBlock .col span { font-size: 22px; }
-	.loanBlock .col { font-size: 12px; }
+	.loanBlock .col { min-height: inherit; font-size: 12px; }
 	.globalLaunchBox .loanBlock .col:after { display: none; }
 	.globalLaunchBox .loanBlock .col { padding-bottom: 20px; margin-top: 20px; border-bottom: 1px solid #dcdcdc; width: 100%; }
 	.imgLightBox .content { max-width: 300px; }
 	.amenitiesBox li img { width: 40px; }
 	.registerBox .content { max-width: 290px; }
 	.whyHoskoteBox .icon_bx { margin: 0 8.5% 30px; width: 32%; }
+    .whyHoskoteBox p { font-size: 14px; line-height: 18px; }
+    .by-proptiger { position: static; }
+    .ph-num { font-size: 14px; left: auto; right: 15px; }
 }
